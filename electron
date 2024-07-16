@@ -1,0 +1,150 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local Electron = Instance.new("ScreenGui")
+local TopBar = Instance.new("Frame")
+local Frame = Instance.new("Frame")
+local enter = Instance.new("TextButton")
+local TextButton = Instance.new("TextButton")
+local TextLabel = Instance.new("TextLabel")
+local TextBox = Instance.new("TextBox")
+local Respawn = Instance.new("TextButton")
+
+--Properties:
+
+Electron.Name = "Electron"
+Electron.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+Electron.ResetOnSpawn = false
+
+TopBar.Name = "TopBar"
+TopBar.Parent = Electron
+TopBar.BackgroundColor3 = Color3.fromRGB(54, 54, 54)
+TopBar.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TopBar.BorderSizePixel = 0
+TopBar.Position = UDim2.new(0.381558031, 0, 0.31807372, 0)
+TopBar.Size = UDim2.new(0, 353, 0, 20)
+
+Frame.Parent = TopBar
+Frame.BackgroundColor3 = Color3.fromRGB(54, 54, 54)
+Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame.BorderSizePixel = 0
+Frame.Position = UDim2.new(-0.258438408, 0, 0.968074024, 0)
+Frame.Size = UDim2.new(0, 444, 0, 220)
+
+enter.Name = "enter"
+enter.Parent = TopBar
+enter.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+enter.BorderColor3 = Color3.fromRGB(0, 0, 0)
+enter.BorderSizePixel = 0
+enter.Position = UDim2.new(-0.184784025, 0, 10.5153379, 0)
+enter.Size = UDim2.new(0, 72, 0, 21)
+enter.Font = Enum.Font.SourceSans
+enter.Text = "Execute"
+enter.TextColor3 = Color3.fromRGB(0, 0, 0)
+enter.TextSize = 14.000
+
+TextButton.Parent = TopBar
+TextButton.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+TextButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextButton.BorderSizePixel = 0
+TextButton.Position = UDim2.new(0.103937685, 0, 10.5138521, 0)
+TextButton.Size = UDim2.new(0, 72, 0, 21)
+TextButton.Font = Enum.Font.SourceSans
+TextButton.Text = "Clear"
+TextButton.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextButton.TextSize = 14.000
+
+TextLabel.Parent = TopBar
+TextLabel.BackgroundColor3 = Color3.fromRGB(54, 54, 54)
+TextLabel.BorderColor3 = Color3.fromRGB(50, 50, 50)
+TextLabel.BorderSizePixel = 0
+TextLabel.Position = UDim2.new(-0.256055981, 0, -0.0319259651, 0)
+TextLabel.Size = UDim2.new(0, 112, 0, 20)
+TextLabel.Font = Enum.Font.ArialBold
+TextLabel.Text = "Electron"
+TextLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.TextSize = 24.000
+TextLabel.TextXAlignment = Enum.TextXAlignment.Left
+TextLabel.TextYAlignment = Enum.TextYAlignment.Top
+
+TextBox.Parent = TopBar
+TextBox.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+TextBox.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextBox.BorderSizePixel = 0
+TextBox.Position = UDim2.new(-0.199830309, 0, 2.3745544, 0)
+TextBox.Size = UDim2.new(0, 401, 0, 148)
+TextBox.Font = Enum.Font.SourceSans
+TextBox.Text = "--made by himgtyo"
+TextBox.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextBox.TextSize = 14.000
+TextBox.TextXAlignment = Enum.TextXAlignment.Left
+TextBox.TextYAlignment = Enum.TextYAlignment.Top
+
+Respawn.Name = "Respawn"
+Respawn.Parent = TopBar
+Respawn.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Respawn.BackgroundTransparency = 1.000
+Respawn.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Respawn.Position = UDim2.new(0.9101336, 0, 10.5138521, 0)
+Respawn.Size = UDim2.new(0, 24, 0, 20)
+Respawn.Font = Enum.Font.SourceSans
+Respawn.Text = "Re"
+Respawn.TextColor3 = Color3.fromRGB(0, 0, 0)
+Respawn.TextSize = 14.000
+
+-- Scripts:
+
+local function BALV_fake_script() -- enter.Script 
+	local script = Instance.new('Script', enter)
+
+	local remote = script.Parent.gay -- your remote ebicgamermolment
+	
+	remote.OnServerEvent:Connect(function(idk, lol) -- function for your executor
+		require(script.Loadstring)(lol)() -- this code so it actally executes requires and things
+	end)-- end) meaning this is the end of the script return function
+end
+coroutine.wrap(BALV_fake_script)()
+local function HENN_fake_script() -- enter.LocalScript 
+	local script = Instance.new('LocalScript', enter)
+
+	local execute = script.Parent.Parent.enter
+	local text = script.Parent.Parent.TextBox
+	local remote = script.Parent.gay
+	
+	execute.MouseButton1Click:Connect(function()
+		remote:FireServer(text.Text)
+	end)
+end
+coroutine.wrap(HENN_fake_script)()
+local function URHPE_fake_script() -- TextButton.LocalScript 
+	local script = Instance.new('LocalScript', TextButton)
+
+	local clear = script.Parent.Parent.TextButton
+	local text = script.Parent.Parent.TextBox
+	
+	clear.MouseButton1Click:Connect(function()
+		text.Text = ""
+	end)
+	
+end
+coroutine.wrap(URHPE_fake_script)()
+local function WUZLVQI_fake_script() -- TopBar.Draggable 
+	local script = Instance.new('LocalScript', TopBar)
+
+	local frame = script.Parent.Parent.TopBar
+	
+	frame.Draggable = true
+	frame.Active = true
+end
+coroutine.wrap(WUZLVQI_fake_script)()
+local function FIDVN_fake_script() -- Respawn.RespawnFunc 
+	local script = Instance.new('Script', Respawn)
+
+	function Respawn()
+		script.Parent.Parent.Parent.Parent.Parent:LoadCharacter()
+	end
+	script.Parent.MouseButton1Click:Connect(Respawn)
+end
+coroutine.wrap(FIDVN_fake_script)()
